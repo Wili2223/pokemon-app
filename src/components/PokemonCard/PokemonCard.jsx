@@ -1,8 +1,11 @@
 import {useEffect, useState} from 'react'
 
 
-export default function PokemonCard({ name, type, imageUrl, onClickPokemon }) {
+export default function PokemonCard({ name, type, imageUrl, onClickPokemon, pokemonSelected }) {
 const [isClicked, setIsClicked] = useState(false);
+
+
+const pokemonFound = pokemonSelected.find(p => p.name === name);
 
 useEffect(() => {
     console.log(`Primer renderizado de ${name}`);
@@ -17,6 +20,7 @@ useEffect(() => {
             setIsClicked(!isClicked);
             onClickPokemon({ name, type, imageUrl });
         }}
+        
         style={{
          border: isClicked ? '2px solid blue' : '2px solid gray',
          padding: '10px', 
@@ -28,8 +32,9 @@ useEffect(() => {
             <h2>{name}</h2>
             <img src={imageUrl} alt={name} style={{ width: '150px', height: '150px' }} />
             <p>Type: {type}</p>
+            <p>{pokemonFound ? '❤️' : ''}</p>
         </div>
-        
+
     )
 }
 

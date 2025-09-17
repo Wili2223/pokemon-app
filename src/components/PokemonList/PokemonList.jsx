@@ -25,6 +25,7 @@ export default function PokemonList({ pokemons }) {
             type={pokemon.type}
             imageUrl={pokemon.imageUrl}
             onClickPokemon={handleClickPokemon}
+            pokemonSelected={pokemonsSelected}
         />
     ))}
     <button onClick={() => setIsClicked(true)}>Click Pokémons List</button>
@@ -41,7 +42,7 @@ export default function PokemonList({ pokemons }) {
             </li>
         ))}
         </ul>
-        
+
         <button onClick={() => setPokemonsSelected([])}>Clear Team</button>
         </div>
        
