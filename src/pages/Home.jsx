@@ -36,6 +36,7 @@ export default function Home() {
     );
 }
 
+
 /*import React, { useEffect, useState } from 'react';
 import PokemonCard from '../components/PokemonCard';
 
