@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useReducer} from "react";
 import PokemonCard from "../PokemonCard/PokemonCard";
 
 export default function PokemonList({ pokemons }) {
@@ -28,11 +28,8 @@ export default function PokemonList({ pokemons }) {
             pokemonSelected={pokemonsSelected}
         />
     ))}
-    <button onClick={() => setIsClicked(true)}>Click Pokémons List</button>
-    { isClicked && <p>Pokémons List Clicked!</p> }
-  
-    </div>
-       
+  </div>
+
          <div>
         <h2>Team Pokemon Selected</h2>
         <ul>
