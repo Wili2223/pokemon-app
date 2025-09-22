@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
+import { useParams } from "react-router";
 
-export default function PokemonDetail({ pokemonId }) {
+
+export default function PokemonDetail() {
+    const param = useParams();
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch Pokémon details from an API
+        
         const fetchPokemon = async () => {
             try {
-                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${param.id}`);
                 const data = await response.json();
                 setPokemon(data);
             } catch (error) {
@@ -19,7 +22,7 @@ export default function PokemonDetail({ pokemonId }) {
         };
 
         fetchPokemon();
-    }, [pokemonId]);
+    }, []);
 
     if (loading) {
         return <div>Loading...</div>;

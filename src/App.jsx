@@ -1,24 +1,23 @@
 import React from 'react'
 import './App.css'
-import Home from './pages/home/Home'
+import Home from './pages/Home'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import ErrorPage from './pages/home/ErrorPage';
-import PokemonDetail from './pages/home/PokemonDetail';
+import ErrorPage from './pages/ErrorPage';
+import PokemonDetail from './pages/PokemonDetail';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
-    children: [
+     },
       {
         path: "/pokemon/:id",
         element: <PokemonDetail />,
       },
-    ],
-  },
-]);
+
+  ]);
 
 function App() {
 
